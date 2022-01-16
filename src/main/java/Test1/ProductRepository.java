@@ -35,8 +35,16 @@ public class ProductRepository {
             }
         }
         return productGet;
-    }
 
+    }
+    public void Print() {
+        for (int i = 0; i <= products.size() - 1; i++) {
+            Product p = products.get(i);
+            System.out.println(p.getId() + " " + p.getName() + " " + p.getCost() + " ");
+
+
+        }
+    }
 
 
 
