@@ -1,18 +1,13 @@
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+package Test1;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
 
-@Component
-public class ConsoleInterface {
-    private Cart cart;
-    @Autowired
-    public void CreateCart(){
-        this.cart = cart;
-    }
-    @Bean
-    public void Start() {
+public class MainApp {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        Cart cart = context.getBean("cart", Cart.class);
         for (; ; ) {
             Scanner in = new Scanner(System.in);
             System.out.println("1 - add, 2 - del, 3 - print");
@@ -28,11 +23,11 @@ public class ConsoleInterface {
                 cart.DelProduct(delID);
             }
             if (task == 3) {
-                System.out.println(cart);
+                cart.Print();
             }
-
-
         }
-    }
 
+
+        //context.close();
+    }
 }

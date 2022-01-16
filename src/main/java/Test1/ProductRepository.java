@@ -1,4 +1,5 @@
-import org.springframework.stereotype.Component;
+package Test1;
+
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -26,14 +27,14 @@ public class ProductRepository {
     }
 
     public Product getByID(int ID) {
-        Product ProductGet = null;
-        for (int i = 0; i <= products.size(); i++) {
+        Product productGet = null;
+        for (int i = 0; i <= products.size() - 1; i++) {
             Product p = products.get(i);
             if (ID == p.getId()) {
-                ProductGet = p;
+                productGet = p;
             }
         }
-        return ProductGet;
+        return productGet;
     }
 
 
